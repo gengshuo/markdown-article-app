@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from 'react-router-dom'
-import { getList as getArticleList } from '../data_operator/Article'
+import { Link } from 'react-router-dom'
+import ArticleForm from './ArticleForm'
+import { 
+    getList as getArticleList, 
+    create as createArticle 
+} from '../data_operator/Article'
 
 export default () => {
 
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [onSending, setOnSending] = useState(false)
+    const [openFrom, setOpenForm] = useState(false)
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -34,13 +40,49 @@ export default () => {
         }
     }
 
+    const onSubmit = function (e, data) {
+        e.preventDefault();
+        setOnSending(true);
+        createArticle(data, response => {
+            if (response.result === "success") {
+                // Delay for loading text displaying...
+                setTimeout(() => {
+                    alert("The article is created successfully!");
+                    location.reload();
+                    setOnSending(false);
+                }, 500);
+            };
+        }, console.log);
+    }
+
+    const onClickCancel = (e) => {
+        setOpenForm(false);
+    }
+
+    const onClickCreate = (e) => {
+        setOpenForm(true);
+    }
+
+    const NewForm = () => (
+        <ArticleForm
+            actionName="Create"
+            onSubmit={onSubmit}
+            onSending={onSending}
+            onCancel={onClickCancel}
+        />
+    )
+
+    const Content = () => (
+        <div>
+            <h1>Article List</h1>
+            <button onClick={onClickCreate}>New Article</button>
+            <DataList />
+        </div>
+    )
+
     return (
         <React.Fragment>
-            <h1>Article List</h1>
-            <div>
-                <NavLink to="/article/new">Add a new article</NavLink>
-            </div>
-            <DataList />
+            {openFrom ? <NewForm /> : <Content />}
         </React.Fragment>
     );
 }

@@ -1,4 +1,12 @@
-# API Mock 
+# Getting Started
+
+```
+$> yarn
+$> yarn start
+```
+
+
+# API Mockup Description
 
 ## Article List API 
 
@@ -12,16 +20,16 @@ Response Structure
     {
         "data": [
             {
-                "id": 20190118001,
-                "subject": "Article 01",
+                "id": (int),
+                "subject": (string),
             },
             {
-                "id": 20190118002,
-                "subject": "Article 02",
+                "id": (int),
+                "subject": (string),
             },
             {
-                "id": 20190118003,
-                "subject": "Article 03",
+                "id": (int),
+                "subject": (string),
             }
         ]
     }
@@ -39,9 +47,9 @@ Response Structure
 ```
     {
         "data": {
-            "id": 20190118001,
-            "subject": "Article 01",
-            "content": "#Article 01 `20190118` ``` $> git clone http://localhost:8080/foo.git ```"
+            "id": (int),
+            "subject": (string),
+            "content": (Markdown Text: string)
         }
     }
 ```
