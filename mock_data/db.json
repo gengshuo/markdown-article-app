@@ -1,0 +1,34 @@
+{
+  "articles": [
+    {
+      "id": 20200119001,
+      "subject": "Article 001",
+      "content": "# Hello World 001\n## Hello World\n### Hello World\n\n`Hello World`\n\n**Hello World**\n- Hello World\n- Hello World\n\n1. Hello World\n2. Hello World\n3. Hello World"
+    },
+    {
+      "id": 20200119002,
+      "subject": "Article 002",
+      "content": "# Hello World 002\n## Hello World\n### Hello World\n\n`Hello World`\n\n**Hello World**\n- Hello World\n- Hello World\n\n1. Hello World\n2. Hello World\n3. Hello World"
+    },
+    {
+      "id": 20200119003,
+      "subject": "Article 003",
+      "content": "# Hello World 003\n## Hello World\n### Hello World\n\n`Hello World`\n\n**Hello World**\n- Hello World\n- Hello World\n\n1. Hello World\n2. Hello World\n3. Hello World"
+    },
+    {
+      "id": 20200119004,
+      "subject": "Article 004",
+      "content": "# test 004\n## Hello"
+    },
+    {
+      "id": 20200119005,
+      "subject": "Article 005",
+      "content": "# Article 005 Test New\n\n---\n\n- Test\n- List Test"
+    },
+    {
+      "subject": "Article 006",
+      "content": "# Hello Mock Great!!\n## API Mock with JSON server\n\n```\n$> npx json-server --watch ./mock_data/db.json --port 7000\n```",
+      "id": 20200119006
+    }
+  ]
+}

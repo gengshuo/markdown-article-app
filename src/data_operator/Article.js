@@ -1,9 +1,9 @@
 
-const apiHost = "http://www.mocky.io"
+const apiHost = "http://localhost:7000"
 
 export const getList = (success, error, signal) => {
     fetch(
-        `${apiHost}/v2/5e22c4bd2f00005b002225f5`,
+        `${apiHost}/articles`,
         {
             method: "GET",
             signal
@@ -14,7 +14,7 @@ export const getList = (success, error, signal) => {
 
 export const getByID = (id, success, error, signal) => {
     fetch(
-        `${apiHost}/v2/5e230d4b2f00007f0022268a?id=${id}`,
+        `${apiHost}/articles/${id}`,
         {
             method: "GET",
             signal
@@ -25,7 +25,7 @@ export const getByID = (id, success, error, signal) => {
 
 export const create = (data, success, error) => {
     fetch(
-        `${apiHost}/v2/5e22ea392f00009a00222634`,
+        `${apiHost}/articles`,
         {
             method: 'POST',
             headers: {
@@ -39,7 +39,7 @@ export const create = (data, success, error) => {
 
 export const update = (data, success, error) => {
     fetch(
-        `${apiHost}/v2/5e22ea392f00009a00222634`,
+        `${apiHost}/articles/${data.id}`,
         {
             method: 'PUT',
             headers: {

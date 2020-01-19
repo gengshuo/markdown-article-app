@@ -7,60 +7,74 @@ $> yarn start
 
 
 # API Mockup Description
+Here is using JSON server for API mockup
+```
+$> npx json-server --watch ./mock_data/db.json --port 7000
+```
 
 ## Article List API 
 
-API mock url: http://www.mocky.io/v2/5e22ca582f00002b002225fe
+API mock url: http://localhost:7000/articles
 
-Request Parameters
+Method: `GET`
+
+URL Parameters
 - N/A
 
-Response Structure
+Request Body
+- N/A
+
+Response (JSON)
 ```
-    {
-        "data": [
-            {
-                "id": (int),
-                "subject": (string),
-            },
-            {
-                "id": (int),
-                "subject": (string),
-            },
-            {
-                "id": (int),
-                "subject": (string),
-            }
-        ]
-    }
+    [
+        {
+            "id": (int),
+            "subject": (string),
+            "content": (text)
+        },
+        {
+            "id": (int),
+            "subject": (string),
+        },
+        {
+            "id": (int),
+            "subject": (string),
+        },
+        ...
+    ]
 ```
 ---
 ## Article Detail API
 
-API mock url: http://www.mocky.io/v2/5e230d4b2f00007f0022268a?id=20190118001
+API mock url: http://localhost:7000/articles/:id
 
-Request Parameters
-(Query String)
+Method: `GET`
+
+URL Parameters
 - id: (int)
 
-Response Structure
+Request Body
+- N/A
+
+Response (JSON)
 ```
     {
-        "data": {
-            "id": (int),
-            "subject": (string),
-            "content": (Markdown Text: string)
-        }
+        "id": (int),
+        "subject": (string),
+        "content": (Markdown Text: string)
     }
 ```
 ---
 ## Create Article API
 
-API mock url: http://www.mocky.io/v2/5e22ea392f00009a00222634
+API mock url: http://localhost:7000/articles
 
-Method: POST
+Method: `POST`
 
-Request Parameters
+URL Parameters
+- id: (int)
+
+Request Body
 (JSON)
 ``` 
 {
@@ -72,21 +86,25 @@ Request Parameters
 Response Structure
 ```
     {
-        "result": "success"
+        "subject": (string),
+        "content": (string),
+        "id": (int: auto_gen)
     }
 ```
 ---
 ## Update Article API
 
-API mock url: http://www.mocky.io/v2/5e22ea392f00009a00222634
+API mock url: http://localhost:7000/articles/:id
 
-Method: PUT
+Method: `PUT`
 
-Request Parameters
+URL Parameters
+- id: (int)
+
+Request Body
 (JSON)
 ``` 
 {
-    "id": (int),
     "subject": (string),
     "content": (string)
 }
@@ -95,6 +113,8 @@ Request Parameters
 Response Structure
 ```
     {
-        "result": "success"
+        "id": (int),
+        "subject": (string),
+        "content": (string)
     }
 ```

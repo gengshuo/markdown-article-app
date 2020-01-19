@@ -24,7 +24,7 @@ export default withRouter(({ history }) => {
         const signal = abortController.signal;
 
         getArticleByID(id, response => {
-            setArticle(response.data);
+            setArticle(response);
             setIsLoading(false);
         }, console.log, signal);
 
@@ -39,7 +39,7 @@ export default withRouter(({ history }) => {
         data = { id, ...data };
         setOnSending(true);
         updateArticle(data, response => {
-            if (response.result === "success") {
+            if (typeof response.id !== "undefined") {
                 // Delay for loading text displaying...
                 setTimeout(() => {
                     setIsLoading(false);

@@ -18,7 +18,7 @@ export default () => {
         const signal = abortController.signal;
 
         getArticleList(response => {
-            setArticles(response.data);
+            setArticles(response);
             setIsLoading(false);
         }, console.log, signal);
 
@@ -44,7 +44,7 @@ export default () => {
         e.preventDefault();
         setOnSending(true);
         createArticle(data, response => {
-            if (response.result === "success") {
+            if (typeof response.id !== 'undefined') {
                 // Delay for loading text displaying...
                 setTimeout(() => {
                     alert("The article is created successfully!");
